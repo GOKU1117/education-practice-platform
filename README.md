@@ -17,6 +17,12 @@ Users can register, log in, attempt challenges, and earn cumulative scores.
 An admin interface allows CRUD operations on tasks and real-time monitoring 
 of traffic and leaderboard updates.
 
+<img width="1686" height="1023" alt="page (4)" src="https://github.com/user-attachments/assets/8952512a-cc0a-42b6-9d0f-5164b5289d17" />
+<img width="1660" height="1024" alt="page (3)" src="https://github.com/user-attachments/assets/89127626-bf63-40d2-847e-75e72eb250bf" />
+<img width="1698" height="1023" alt="page (2)" src="https://github.com/user-attachments/assets/051e3c8c-07db-4c81-9704-77c2bcf50b2d" />
+<img width="1624" height="1021" alt="page (1)" src="https://github.com/user-attachments/assets/e20a262d-556c-498b-bf76-714fa1bd72f4" />
+
+
 -----------------------------------------
 ### Prerequisites
 -------------------------------------------
