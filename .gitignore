@@ -1,0 +1,99 @@
+# ---------- Node / Frontend ----------
+# dependencies
+/frontend/node_modules/
+# build output
+/frontend/dist/
+/frontend/.vite/
+/frontend/.parcel-cache/
+/frontend/.turbo/
+/frontend/.output/
+# npm debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- Python / Backend ----------
+# Byte-compiled / caches
+/__pycache__/
+*.py[cod]
+*$py.class
+# virtualenvs
+.env
+.venv/
+venv/
+ENV/
+env/
+# pip cache
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ---------- Poetry / Pipenv ----------
+poetry.lock
+Pipfile.lock
+
+# ---------- Vite / Vue ----------
+/frontend/.env
+/frontend/.env.* 
+/src/*.local.*              
+
+# ---------- Docker ----------
+# local Docker build files and volumes
+docker-compose.override.yml
+Dockerfile.*.local
+**/docker-compose.override.yml
+# local docker volumes / data (don't commit DB data)
+db_data/
+*/db_data/
+*.tar
+docker-compose.*.local.yml
+
+# ---------- nginx / certs ----------
+/nginx/certs/*.key
+/nginx/certs/*.pem
+/nginx/certs/*.crt
+
+# ---------- Logs / runtime ----------
+*.log
+*.out
+*.pid
+
+# ---------- Editor / OS ----------
+# VSCode
+.vscode/
+# JetBrains
+.idea/
+*.iml
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---------- Tests / coverage ----------
+coverage/
+htmlcov/
+.tox/
+.nox/
+.cache/
+
+# ---------- Build artifacts ----------
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# ---------- Secrets / config ----------
+*.env
+.env.*
+secrets.yml
+secret-*.key
+lockfiles are useful to commit for reproducible builds; uncomment if you want to ignore them
+package-lock.json
+yarn.lock
+Pipfile.lock
+*.swp
+*.swo

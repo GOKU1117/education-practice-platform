@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_USER: ctf
+      POSTGRES_PASSWORD: ctfpassword
+      POSTGRES_DB: ctfdb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "postgresql+asyncpg://ctf:ctfpassword@db:5432/ctfdb"
+      SECRET_KEY: supersecretchangeit
+      ACCESS_TOKEN_EXPIRE_MINUTES: "60"
+    expose:
+      - "8000"
+    command: >
+      sh -c "./waitdb.sh && python -m app.db.init_admin && python -m app.db.seed && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    container_name: nginx
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    command: [ "nginx", "-g", "daemon off;" ]
+
+volumes:
+  db_data:
